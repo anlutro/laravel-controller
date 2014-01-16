@@ -1,6 +1,7 @@
 {
 	"name": "anlutro/l4-controller",
 	"description": "Base Laravel 4 controller classes.",
+	"license": "MIT",
 	"authors": [
 		{
 			"name": "Andreas Lutro",
