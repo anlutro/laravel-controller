@@ -73,7 +73,7 @@ abstract class Controller extends \Illuminate\Routing\Controller
 	 *
 	 * @return Illuminate\View\View
 	 */
-	public function view($view, array $data = array())
+	protected function view($view, array $data = array())
 	{
 		return View::make($view, $data);
 	}
@@ -85,7 +85,7 @@ abstract class Controller extends \Illuminate\Routing\Controller
 	 *
 	 * @return mixed
 	 */
-	public function input($key = null)
+	protected function input($key = null)
 	{
 		if (is_array($key)) {
 			return Input::only($key);
