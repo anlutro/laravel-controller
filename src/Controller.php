@@ -9,8 +9,10 @@
 
 namespace c;
 
+use Illuminate\Support\Facades\Input;
 use Illuminate\Support\Facades\Redirect;
 use Illuminate\Support\Facades\URL;
+use Illuminate\Support\Facades\View;
 
 /**
  * Abstract controller with a lot of handy functions.
@@ -61,6 +63,39 @@ abstract class Controller extends \Illuminate\Routing\Controller
 	protected function redirectAction()
 	{
 		return call_user_func_array([$this, 'redirect'], func_get_args());
+	}
+
+	/**
+	 * Create a View instance.
+	 *
+	 * @param  string $view
+	 * @param  array  $data
+	 *
+	 * @return Illuminate\View\View
+	 */
+	public function view($view, array $data = array())
+	{
+		return View::make($view, $data);
+	}
+
+	/**
+	 * Get the input from the request.
+	 *
+	 * @param  mixed $key
+	 *
+	 * @return mixed
+	 */
+	public function input($key = null)
+	{
+		if (is_array($key)) {
+			return Input::only($key);
+		}
+
+		if ($key !== null) {
+			return Input::get($key);
+		}
+
+		return Input::all();
 	}
 
 	/**
