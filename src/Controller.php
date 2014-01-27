@@ -49,12 +49,13 @@ abstract class Controller extends \Illuminate\Routing\Controller
 	 *
 	 * @param  string $action name of the action to look for
 	 * @param  array  $params (optional) additional parameters
+	 * @param  int    $status (optional) status code
 	 *
 	 * @return Redirect       a Redirect response.
 	 */
-	protected function redirect($action, $params = array())
+	protected function redirect($action, $params = array(), $status = 302)
 	{
-		return Redirect::to($this->url($action, $params));
+		return Redirect::to($this->url($action, $params), 302);
 	}
 
 	/**
