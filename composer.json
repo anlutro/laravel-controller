@@ -14,7 +14,7 @@
 		"illuminate/support": "4.1.*"
 	},
 	"require-dev": {
-		"mockery/mockery": "dev-master"
+		"mockery/mockery": "dev-master@dev"
 	},
 	"autoload": {
 		"psr-4": {

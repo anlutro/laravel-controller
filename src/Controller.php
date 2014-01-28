@@ -9,7 +9,6 @@
 
 namespace c;
 
-use Illuminate\Support\Facades\Input;
 use Illuminate\Support\Facades\Redirect;
 use Illuminate\Support\Facades\URL;
 use Illuminate\Support\Facades\View;
@@ -17,7 +16,7 @@ use Illuminate\Support\Facades\View;
 /**
  * Abstract controller with a lot of handy functions.
  */
-abstract class Controller extends \Illuminate\Routing\Controller
+abstract class Controller extends AbstractController
 {
 	/**
 	 * Helper function to retrieve this controller's action URLs.
@@ -80,26 +79,6 @@ abstract class Controller extends \Illuminate\Routing\Controller
 	}
 
 	/**
-	 * Get the input from the request.
-	 *
-	 * @param  mixed $key
-	 *
-	 * @return mixed
-	 */
-	protected function input($key = null)
-	{
-		if (is_array($key)) {
-			return Input::only($key);
-		}
-
-		if ($key !== null) {
-			return Input::get($key);
-		}
-
-		return Input::all();
-	}
-
-	/**
 	 * If any \ are present, just return the string as is. If no \ are, but @ is
 	 * present, takes the current namespace and adds the given controller name.
 	 * If \ nor @ are present, takes the current controller class name and
@@ -109,7 +88,7 @@ abstract class Controller extends \Illuminate\Routing\Controller
 	 *
 	 * @return string fully namespaced Controller@Action
 	 */
-	protected function parseAction($action)
+	protected function action($action)
 	{
 		static $classname;
 
@@ -129,5 +108,13 @@ abstract class Controller extends \Illuminate\Routing\Controller
 		} else {
 			return $action;
 		}
+	}
+
+	/**
+	 * @deprecated - use action()
+	 */
+	protected function parseAction()
+	{
+		return call_user_func_array([$this, 'action'], func_get_args());
 	}
 }

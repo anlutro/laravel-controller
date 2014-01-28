@@ -16,7 +16,7 @@ use Illuminate\Support\Contracts\ArrayableInterface;
 /**
  * Abstract class for basic API functionality.
  */
-abstract class ApiController extends \Illuminate\Routing\Controller
+abstract class ApiController extends AbstractController
 {
 	/**
 	 * Return a generic success response.
