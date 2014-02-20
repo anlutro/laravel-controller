@@ -58,6 +58,20 @@ abstract class ApiController extends AbstractController
 	}
 
 	/**
+	 * Return a generic status JSON reply.
+	 *
+	 * @param  string $status
+	 * @param  int    $code   HTTP response code
+	 *
+	 * @return Illuminate\Http\JsonResponse
+	 */
+	protected function status($status, $code)
+	{
+		$data = $this->getStatusData($status);
+		return Response::json($data, $code);
+	}
+
+	/**
 	 * Get an array of a status message response.
 	 *
 	 * @param  string $status
