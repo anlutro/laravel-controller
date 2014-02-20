@@ -93,7 +93,7 @@ abstract class ApiController extends AbstractController
 				$messages = $messages->toArray();
 			}
 
-			$data[$msgKey] = $messages;
+			$data[$msgKey] = (array) $messages;
 		}
 
 		return $data;
