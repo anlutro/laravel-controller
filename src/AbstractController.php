@@ -15,19 +15,31 @@ abstract class AbstractController extends \Illuminate\Routing\Controller
 	 */
 	protected function input($key = null)
 	{
-		if ($key !== null) {
-			$input = Input::only($key);
+		$transformed = $this->fluentInput($key);
+
+		if (is_array($key) || $key === null) {
+			return $transformed->toArray();
+		} else {
+			return isset($transformed[$key]) ? $transformed[$key] : null;
+		}
+	}
+
+	/**
+	 * Get input as a Fluent instance.
+	 *
+	 * @param  mixed $keys
+	 *
+	 * @return Illuminate\Support\Fluent
+	 */
+	protected function fluentInput($keys = null)
+	{
+		if ($keys !== null) {
+			$input = Input::only($keys);
 		} else {
 			$input = Input::all();
 		}
 
-		$transformed = $this->getTransformedInput($input);
-
-		if (is_array($key) || $key === null) {
-			return $transformed;
-		} else {
-			return isset($transformed[$key]) ? $transformed[$key] : null;
-		}
+		return $this->getTransformedInput($input);
 	}
 
 	/**
@@ -39,10 +51,9 @@ abstract class AbstractController extends \Illuminate\Routing\Controller
 	 */
 	protected function getTransformedInput($input)
 	{
-		$fluent = new Fluent($input);
 		$transformed = new Fluent($input);
 
-		foreach ($this->transformInput($fluent) as $k => $v) {
+		foreach ($this->transformInput(new Fluent($input)) as $k => $v) {
 			if (array_key_exists($k, $input)) {
 				if ($v instanceof \Closure) {
 					$transformed[$k] = $v($input[$k]);
