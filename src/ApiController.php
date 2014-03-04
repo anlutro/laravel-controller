@@ -63,7 +63,7 @@ abstract class ApiController extends AbstractController
 	 * @param  string $status
 	 * @param  int    $code   HTTP response code
 	 *
-	 * @return Illuminate\Http\JsonResponse
+	 * @return \Illuminate\Http\JsonResponse
 	 */
 	protected function status($status, $code)
 	{

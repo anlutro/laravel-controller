@@ -29,7 +29,7 @@ abstract class AbstractController extends \Illuminate\Routing\Controller
 	 *
 	 * @param  mixed $keys
 	 *
-	 * @return Illuminate\Support\Fluent
+	 * @return \Illuminate\Support\Fluent
 	 */
 	protected function fluentInput($keys = null)
 	{
@@ -47,7 +47,7 @@ abstract class AbstractController extends \Illuminate\Routing\Controller
 	 *
 	 * @param  array $input
 	 *
-	 * @return Illuminte\Support\Fluent
+	 * @return \Illuminte\Support\Fluent
 	 */
 	protected function getTransformedInput($input)
 	{
@@ -69,7 +69,7 @@ abstract class AbstractController extends \Illuminate\Routing\Controller
 	/**
 	 * Transform input.
 	 *
-	 * @param  Fluent $input
+	 * @param  \Illuminte\Support\Fluent $input
 	 *
 	 * @return array
 	 */

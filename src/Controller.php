@@ -50,7 +50,7 @@ abstract class Controller extends AbstractController
 	 * @param  array  $params (optional) additional parameters
 	 * @param  int    $status (optional) status code
 	 *
-	 * @return Redirect       a Redirect response.
+	 * @return \Illuminate\Http\RedirectResponse
 	 */
 	protected function redirect($action, $params = array(), $status = 302)
 	{
@@ -71,7 +71,7 @@ abstract class Controller extends AbstractController
 	 * @param  string $view
 	 * @param  array  $data
 	 *
-	 * @return Illuminate\View\View
+	 * @return \Illuminate\View\View
 	 */
 	protected function view($view, array $data = array())
 	{
