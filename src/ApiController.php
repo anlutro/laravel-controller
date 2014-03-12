@@ -16,7 +16,7 @@ use Illuminate\Support\Contracts\ArrayableInterface;
 /**
  * Abstract class for basic API functionality.
  */
-abstract class ApiController extends AbstractController
+abstract class ApiController extends \Illuminate\Routing\Controller
 {
 	/**
 	 * Return a generic success response.
@@ -97,5 +97,23 @@ abstract class ApiController extends AbstractController
 		}
 
 		return $data;
+	}
+
+	/**
+	 * Get the input from the request.
+	 *
+	 * @param  mixed $key
+	 *
+	 * @return mixed
+	 */
+	protected function input($key = null)
+	{
+		if ($key === null) {
+			return Input::all();
+		} elseif (is_array($key)) {
+			return Input::only($key);
+		} else {
+			return Input::get($key);
+		}
 	}
 }

@@ -4,7 +4,7 @@ namespace c;
 use Illuminate\Support\Facades\Input;
 use Illuminate\Support\Fluent;
 
-abstract class AbstractController extends \Illuminate\Routing\Controller
+trait InputTransformingController
 {
 	/**
 	 * Get the input from the request.

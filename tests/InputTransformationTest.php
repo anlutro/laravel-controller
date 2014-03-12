@@ -31,7 +31,7 @@ class InputTransformationTest extends PHPUnit_Framework_TestCase
 			'datetime' => '2014-01-01 12:00:00',
 			'untransformed' => 'untransformed',
 		]);
-		$result = (new CtrlStub)->input();
+		$result = (new CtrlStub)->getInput();
 		$this->assertSame(1, $result['number1']);
 		$this->assertSame(2.0, $result['number2']);
 		$this->assertSame('4.5', $result['stringnum']);
@@ -48,7 +48,7 @@ class InputTransformationTest extends PHPUnit_Framework_TestCase
 	public function testGetSingleInput()
 	{
 		$this->setInput('only', ['foo' => 'bar', 'bar' => 'baz']);
-		$result = (new CtrlStub)->input('foo');
+		$result = (new CtrlStub)->getInput('foo');
 		$this->assertEquals('bar', $result);
 	}
 
@@ -58,15 +58,16 @@ class InputTransformationTest extends PHPUnit_Framework_TestCase
 	}
 }
 
-class CtrlStub extends \c\AbstractController
+class CtrlStub
 {
-	// override the method to make it public
-	public function input($key = null)
+	use c\InputTransformingController;
+
+	public function getInput($key = null)
 	{
-		return parent::input($key);
+		return $this->input($key);
 	}
 
-	public function transformInput(Fluent $input)
+	protected function transformInput(Fluent $input)
 	{
 		return [
 			'number1' => (int) $input->number1,
