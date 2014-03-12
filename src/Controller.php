@@ -54,7 +54,7 @@ abstract class Controller extends AbstractController
 	 */
 	protected function redirect($action, $params = array(), $status = 302)
 	{
-		return Redirect::to($this->url($action, $params), 302);
+		return Redirect::to($this->url($action, $params), $status);
 	}
 
 	/**
