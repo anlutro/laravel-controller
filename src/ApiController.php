@@ -9,6 +9,7 @@
 
 namespace c;
 
+use Illuminate\Support\Facades\Input;
 use Illuminate\Support\Facades\Response;
 use Illuminate\Support\Contracts\MessageProviderInterface;
 use Illuminate\Support\Contracts\ArrayableInterface;
