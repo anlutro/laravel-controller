@@ -50,7 +50,7 @@ abstract class AbstractController extends Controller
 	 */
 	protected function viewResponse($view, $data = array(), $status = 200, array $headers = array())
 	{
-		return $this->response(View::make($view, $data));
+		return $this->response(View::make($view, $data), $status, $headers);
 	}
 
 	/**
