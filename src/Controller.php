@@ -35,14 +35,6 @@ abstract class Controller extends AbstractController
 	}
 
 	/**
-	 * @deprecated - use url()
-	 */
-	protected function urlAction()
-	{
-		return call_user_func_array([$this, 'url'], func_get_args());
-	}
-
-	/**
 	 * Helper function to redirect to another action in the controller.
 	 * 
 	 * @see    parseAction
@@ -56,14 +48,6 @@ abstract class Controller extends AbstractController
 	protected function redirect($action, $params = array(), $status = 302)
 	{
 		return Redirect::to($this->url($action, $params), $status);
-	}
-
-	/**
-	 * @deprecated - use redirect()
-	 */
-	protected function redirectAction()
-	{
-		return call_user_func_array([$this, 'redirect'], func_get_args());
 	}
 
 	/**
@@ -109,13 +93,5 @@ abstract class Controller extends AbstractController
 		} else {
 			return $action;
 		}
-	}
-
-	/**
-	 * @deprecated - use action()
-	 */
-	protected function parseAction()
-	{
-		return call_user_func_array([$this, 'action'], func_get_args());
 	}
 }
