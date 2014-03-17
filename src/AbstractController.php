@@ -15,13 +15,14 @@ use Illuminate\Support\Str;
 use Illuminate\Support\Facades\View;
 use Illuminate\Support\Facades\Input;
 use Illuminate\Support\Contracts\ArrayableInterface;
+use Illuminate\Routing\Controller;
 use Symfony\Component\HttpFoundation\StreamedResponse;
 use Symfony\Component\HttpFoundation\BinaryFileResponse;
 
 /**
  * Abstract class with shared behaviour between all controller types.
  */
-abstract class AbstractController
+abstract class AbstractController extends Controller
 {
 	/**
 	 * Create a generic response. Wrapper for Response::make()
