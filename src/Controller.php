@@ -17,7 +17,7 @@ use Illuminate\Support\Facades\View;
 /**
  * Abstract controller with a lot of handy functions.
  */
-abstract class Controller extends \Illuminate\Routing\Controller
+abstract class Controller extends AbstractController
 {
 	/**
 	 * Helper function to retrieve this controller's action URLs.
@@ -77,24 +77,6 @@ abstract class Controller extends \Illuminate\Routing\Controller
 	protected function view($view, array $data = array())
 	{
 		return View::make($view, $data);
-	}
-
-	/**
-	 * Get the input from the request.
-	 *
-	 * @param  mixed $key
-	 *
-	 * @return mixed
-	 */
-	protected function input($key = null)
-	{
-		if ($key === null) {
-			return Input::all();
-		} elseif (is_array($key)) {
-			return Input::only($key);
-		} else {
-			return Input::get($key);
-		}
 	}
 
 	/**
