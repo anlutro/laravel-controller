@@ -22,7 +22,7 @@ abstract class Controller extends AbstractController
 	/**
 	 * Helper function to retrieve this controller's action URLs.
 	 * 
-	 * @see    parseAction
+	 * @see    action
 	 *
 	 * @param  string $action name of the action to look for
 	 * @param  array  $params route parameters
@@ -31,13 +31,13 @@ abstract class Controller extends AbstractController
 	 */
 	protected function url($action, $params = array())
 	{
-		return URL::action($this->parseAction($action), $params);
+		return URL::action($this->action($action), $params);
 	}
 
 	/**
 	 * Helper function to redirect to another action in the controller.
 	 * 
-	 * @see    parseAction
+	 * @see    action
 	 *
 	 * @param  string $action name of the action to look for
 	 * @param  array  $params (optional) additional parameters
