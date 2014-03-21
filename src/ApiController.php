@@ -7,7 +7,7 @@
  * @package  l4-controller
  */
 
-namespace c;
+namespace anlutro\Core;
 
 use Illuminate\Support\Facades\Input;
 use Illuminate\Support\Facades\Response;

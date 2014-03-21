@@ -7,7 +7,7 @@
  * @package  l4-controller
  */
 
-namespace c;
+namespace anlutro\Core;
 
 use Illuminate\Http\Response;
 use Illuminate\Http\JsonResponse;
