@@ -7,7 +7,7 @@
  * @package  l4-controller
  */
 
-namespace anlutro\Core;
+namespace anlutro\LaravelController;
 
 use Illuminate\Support\Facades\Input;
 use Illuminate\Support\Facades\Redirect;

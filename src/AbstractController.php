@@ -7,7 +7,7 @@
  * @package  l4-controller
  */
 
-namespace anlutro\Core;
+namespace anlutro\LaravelController;
 
 use Illuminate\Http\Response;
 use Illuminate\Http\JsonResponse;

@@ -60,7 +60,7 @@ class InputTransformationTest extends PHPUnit_Framework_TestCase
 
 class CtrlStub
 {
-	use anlutro\Core\InputTransformingController;
+	use anlutro\LaravelController\InputTransformingController;
 
 	public function getInput($key = null)
 	{
