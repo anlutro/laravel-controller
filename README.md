@@ -1,4 +1,4 @@
-# Laravel 4 Controller classes [![Build Status](https://travis-ci.org/anlutro/laravel-controller.png?branch=master)](https://travis-ci.org/anlutro/laravel-controller)
+# Laravel 4 Controller [![Build Status](https://travis-ci.org/anlutro/laravel-controller.png?branch=master)](https://travis-ci.org/anlutro/laravel-controller) [![Latest Version](http://img.shields.io/github/tag/anlutro/laravel-controller.svg)](https://github.com/anlutro/laravel-controller/releases)
 Installation: `composer require anlutro/l4-controller`
 
 Pick the latest stable version from packagist or the GitHub tag list.
