@@ -85,6 +85,9 @@ abstract class Controller extends AbstractController
 			return $classname . '@' . $action;
 		} elseif (strpos($action, '\\') === false) {
 			$namespace = substr($classname, 0, strrpos($classname, '\\'));
+			if (substr($action, 0, 1) === '@') {
+				return $classname.$action;
+			}
 			if (!empty($namespace)) {
 				return $namespace . '\\' . $action;
 			} else {
