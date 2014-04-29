@@ -1,8 +1,12 @@
 <?php
+namespace anlutro\LaravelController\Tests;
 
+use PHPUnit_Framework_TestCase;
 use Mockery as m;
 use Illuminate\Support\Fluent;
 use Illuminate\Support\Facades;
+use StdClass;
+use DateTime;
 
 class InputTransformationTest extends PHPUnit_Framework_TestCase
 {
@@ -60,7 +64,7 @@ class InputTransformationTest extends PHPUnit_Framework_TestCase
 
 class CtrlStub
 {
-	use anlutro\LaravelController\InputTransformingController;
+	use \anlutro\LaravelController\InputTransformingController;
 
 	public function getInput($key = null)
 	{
