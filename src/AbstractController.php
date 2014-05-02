@@ -39,21 +39,6 @@ abstract class AbstractController extends Controller
 	}
 
 	/**
-	 * Create a view response. Wrapper for Response::view()
-	 *
-	 * @param  string  $view
-	 * @param  array   $data
-	 * @param  integer $status
-	 * @param  array   $headers
-	 *
-	 * @return \Illuminate\Http\Response
-	 */
-	protected function viewResponse($view, $data = array(), $status = 200, array $headers = array())
-	{
-		return $this->response(View::make($view, $data), $status, $headers);
-	}
-
-	/**
 	 * Create a JSON response. Wrapper for Response::json()
 	 *
 	 * @param  array   $data
