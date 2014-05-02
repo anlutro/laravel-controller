@@ -22,7 +22,7 @@ abstract class Controller extends AbstractController
 	/**
 	 * Helper function to retrieve this controller's action URLs.
 	 * 
-	 * @see    action
+	 * @see    action()
 	 *
 	 * @param  string $action name of the action to look for
 	 * @param  array  $params route parameters
@@ -37,7 +37,7 @@ abstract class Controller extends AbstractController
 	/**
 	 * Helper function to redirect to another action in the controller.
 	 * 
-	 * @see    action
+	 * @see    action()
 	 *
 	 * @param  string $action name of the action to look for
 	 * @param  array  $params (optional) additional parameters
@@ -61,6 +61,21 @@ abstract class Controller extends AbstractController
 	protected function view($view, array $data = array())
 	{
 		return View::make($view, $data);
+	}
+
+	/**
+	 * Create a view response. Wrapper for Response::view()
+	 *
+	 * @param  string  $view
+	 * @param  array   $data
+	 * @param  integer $status
+	 * @param  array   $headers
+	 *
+	 * @return \Illuminate\Http\Response
+	 */
+	protected function viewResponse($view, $data = array(), $status = 200, array $headers = array())
+	{
+		return $this->response($this->view($view, $data), $status, $headers);
 	}
 
 	/**

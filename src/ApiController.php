@@ -29,7 +29,7 @@ abstract class ApiController extends AbstractController
 	protected function success($messages = null)
 	{
 		$data = $this->getStatusData('success', $messages);
-		return Response::json($data, 200);
+		return $this->jsonResponse($data, 200);
 	}
 
 	/**
@@ -42,7 +42,7 @@ abstract class ApiController extends AbstractController
 	protected function error($errors)
 	{
 		$data = $this->getStatusData('error', $errors, 'errors');
-		return Response::json($data, 400);
+		return $this->jsonResponse($data, 400);
 	}
 
 	/**
@@ -55,7 +55,7 @@ abstract class ApiController extends AbstractController
 	protected function notFound($messages = null)
 	{
 		$data = $this->getStatusData('not-found', $messages);
-		return Response::json($data, 404);
+		return $this->jsonResponse($data, 404);
 	}
 
 	/**
@@ -69,7 +69,7 @@ abstract class ApiController extends AbstractController
 	protected function status($status, $code)
 	{
 		$data = $this->getStatusData($status);
-		return Response::json($data, $code);
+		return $this->jsonResponse($data, $code);
 	}
 
 	/**
