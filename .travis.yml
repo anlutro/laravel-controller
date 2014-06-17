@@ -13,7 +13,7 @@ env:
 
 before_script:
   - curl -s http://getcomposer.org/installer | php
-  - php composer.phar require laravel/routing:${FRAMEWORK_VERSION} laravel/support:${FRAMEWORK_VERSION} --no-update
+  - php composer.phar require illuminate/routing:${FRAMEWORK_VERSION} illuminate/support:${FRAMEWORK_VERSION} --no-update
   - php composer.phar install --dev --prefer-dist
 
 script: phpunit
