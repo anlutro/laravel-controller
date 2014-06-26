@@ -106,4 +106,16 @@ abstract class AbstractController extends Controller
 			return Input::get($key);
 		}
 	}
+
+	/**
+	 * Get an uploaded file from the input.
+	 *
+	 * @param  string $key
+	 *
+	 * @return \Symfony\Component\HttpFoundation\File\UploadedFile|null
+	 */
+	protected function fileInput($key)
+	{
+		return Input::file($key);
+	}
 }
