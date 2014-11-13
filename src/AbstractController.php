@@ -12,7 +12,7 @@ namespace anlutro\LaravelController;
 use Illuminate\Http\JsonResponse;
 use Illuminate\Http\Response;
 use Illuminate\Routing\Controller;
-use Illuminate\Support\Contracts\ArrayableInterface;
+use Illuminate\Contracts\Support\Arrayable;
 use Illuminate\Support\Facades\Input;
 use Illuminate\Support\Facades\View;
 use Illuminate\Support\Str;
@@ -53,7 +53,7 @@ abstract class AbstractController extends Controller
 	{
 		if ($data instanceof JsonSerializable) {
 			$data = $data->jsonSerialize();
-		} else if ($data instanceof ArrayableInterface) {
+		} else if ($data instanceof Arrayable) {
 			$data = $data->toArray();
 		}
 

@@ -11,8 +11,8 @@ namespace anlutro\LaravelController;
 
 use Illuminate\Support\Facades\Input;
 use Illuminate\Support\Facades\Response;
-use Illuminate\Support\Contracts\MessageProviderInterface;
-use Illuminate\Support\Contracts\ArrayableInterface;
+use Illuminate\Contracts\Support\MessageProvider;
+use Illuminate\Contracts\Support\Arrayable;
 
 /**
  * Abstract class for basic API functionality.
@@ -86,11 +86,11 @@ abstract class ApiController extends AbstractController
 		$data = ['status' => $status];
 
 		if ($messages !== null) {
-			if ($messages instanceof MessageProviderInterface) {
+			if ($messages instanceof MessageProvider) {
 				$messages = $messages->getMessageBag();
 			}
 
-			if ($messages instanceof ArrayableInterface) {
+			if ($messages instanceof Arrayable) {
 				$messages = $messages->toArray();
 			}
 
