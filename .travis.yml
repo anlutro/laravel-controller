@@ -9,7 +9,6 @@ php:
 env:
   - FRAMEWORK_VERSION="4.1.*"
   - FRAMEWORK_VERSION="4.2.*"
-  - FRAMEWORK_VERSION="4.3.*@dev"
 
 before_install:
   - composer require illuminate/routing:${FRAMEWORK_VERSION} illuminate/support:${FRAMEWORK_VERSION} --no-update
