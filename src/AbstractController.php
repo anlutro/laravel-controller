@@ -9,16 +9,16 @@
 
 namespace anlutro\LaravelController;
 
-use Illuminate\Http\Response;
 use Illuminate\Http\JsonResponse;
-use Illuminate\Support\Str;
-use Illuminate\Support\Facades\View;
-use Illuminate\Support\Facades\Input;
-use Illuminate\Support\Contracts\ArrayableInterface;
+use Illuminate\Http\Response;
 use Illuminate\Routing\Controller;
+use Illuminate\Support\Contracts\ArrayableInterface;
+use Illuminate\Support\Facades\Input;
+use Illuminate\Support\Facades\View;
+use Illuminate\Support\Str;
 use JsonSerializable;
-use Symfony\Component\HttpFoundation\StreamedResponse;
 use Symfony\Component\HttpFoundation\BinaryFileResponse;
+use Symfony\Component\HttpFoundation\StreamedResponse;
 
 /**
  * Abstract class with shared behaviour between all controller types.
