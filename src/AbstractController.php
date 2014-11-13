@@ -16,6 +16,7 @@ use Illuminate\Support\Facades\View;
 use Illuminate\Support\Facades\Input;
 use Illuminate\Support\Contracts\ArrayableInterface;
 use Illuminate\Routing\Controller;
+use JsonSerializable;
 use Symfony\Component\HttpFoundation\StreamedResponse;
 use Symfony\Component\HttpFoundation\BinaryFileResponse;
 
@@ -50,7 +51,11 @@ abstract class AbstractController extends Controller
 	 */
 	protected function jsonResponse($data = array(), $status = 200, array $headers = array(), $options = 0)
 	{
-		if ($data instanceof ArrayableInterface) $data = $data->toArray();
+		if ($data instanceof JsonSerializable) {
+			$data = $data->jsonSerialize();
+		} else if ($data instanceof ArrayableInterface) {
+			$data = $data->toArray();
+		}
 
 		return new JsonResponse($data, $status, $headers, $options);
 	}
