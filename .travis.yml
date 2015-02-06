@@ -7,11 +7,12 @@ php:
   - hhvm
 
 env:
-  - FRAMEWORK_VERSION="4.1.*"
-  - FRAMEWORK_VERSION="4.2.*"
+  - LV="4.1.*"
+  - LV="4.2.*"
+  - LV="5.0.*"
 
 before_install:
-  - composer require illuminate/routing:${FRAMEWORK_VERSION} illuminate/support:${FRAMEWORK_VERSION} --no-update
+  - composer require illuminate/routing:${LV} illuminate/support:${LV} --no-update
 
 install: composer install --dev --prefer-dist
 
