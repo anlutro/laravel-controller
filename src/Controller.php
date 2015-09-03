@@ -93,7 +93,7 @@ abstract class Controller extends AbstractController
 		static $classname;
 
 		if ($classname === null) {
-			$classname = get_class($this);
+			$classname = $this->getClassName();
 		}
 
 		if (strpos($action, '@') === false) {
@@ -111,5 +111,10 @@ abstract class Controller extends AbstractController
 		} else {
 			return $action;
 		}
+	}
+
+	protected function getClassName()
+	{
+		return get_class($this);
 	}
 }
